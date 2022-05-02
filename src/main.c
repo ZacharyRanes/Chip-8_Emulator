@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
-#include <SDL2/SDL.h>
+#include "SDL2/SDL.h"
 #include "chip8.h"
 #include "chip8keyboard.h"
 
@@ -25,7 +25,6 @@ int main(int argc, char **argv)
         CHIP8_HEIGHT * CHIP8_WINDOW_MULTIPLIER, SDL_WINDOW_SHOWN);
 
     SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_TEXTUREACCESS_TARGET);
-
     while (1)
     {
         SDL_Event event;
@@ -58,7 +57,7 @@ int main(int argc, char **argv)
                 }
             }
             break;
-            }
+            };
         }
 
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
@@ -86,6 +85,5 @@ int main(int argc, char **argv)
 
 out:
     SDL_DestroyWindow(window);
-
     return 0;
 }

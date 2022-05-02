@@ -1,9 +1,11 @@
 INCLUDES= -I ./include
 FLAGS= -g
-LIBRARIES= -lSDL2main -lSDL2
+LIBRARIES= `sdl2-config --cflags --libs`
 OBJECTS= ./build/chip8.o ./build/chip8memory.o ./build/chip8stack.o ./build/chip8keyboard.o ./build/chip8screen.o
 
 all: ${OBJECTS}
+	mkdir -p build
+	mkdir -p bin
 	gcc ${FLAGS} ${INCLUDES} ./src/main.c ${OBJECTS} ${LIBRARIES} -o ./bin/main
 
 ./build/chip8.o:src/chip8.c
